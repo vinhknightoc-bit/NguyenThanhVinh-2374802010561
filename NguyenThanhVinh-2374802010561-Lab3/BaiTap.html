@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin thành viên</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        form {
+            width: 560px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+        }
+
+        td {
+            padding: 3px;
+        }
+
+        .nhan {
+            width: 105px;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .o-nhap {
+            width: 315px;
+        }
+
+        input, select, textarea, button {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" method="get">
+        <h1>PHIẾU ĐĂNG KÝ</h1>
+
+        <table cellspacing="0">
+            <tr>
+                <td class="nhan">
+                    <label for="hoten">Họ và tên:</label>
+                </td>
+                <td>
+                    <input type="text" id="hoten" name="hoten"
+                           class="o-nhap" required>
+                    (*)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan">
+                    <label for="diachi">Địa chỉ:</label>
+                </td>
+                <td>
+                    <input type="text" id="diachi" name="diachi"
+                           style="width: 420px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan">
+                    <label for="email">Email:</label>
+                </td>
+                <td>
+                    <input type="email" id="email" name="email"
+                           class="o-nhap" required>
+                    (*)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan">Giới tính:</td>
+                <td>
+                    <input type="radio" id="nam"
+                           name="gioitinh" value="Nam">
+                    <label for="nam">Nam</label>
+
+                    <input type="radio" id="nu"
+                           name="gioitinh" value="Nữ">
+                    <label for="nu">Nữ</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan">
+                    <label for="tuoi">Tuổi:</label>
+                </td>
+                <td>
+                    <input type="number" id="tuoi" name="tuoi"
+                           min="0" style="width: 65px;" required>
+                    (*)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan" valign="top">Sở thích:</td>
+                <td>
+                    <input type="checkbox" id="thethao"
+                           name="sothich" value="Thể thao">
+                    <label for="thethao">Thể thao</label><br>
+
+                    <input type="checkbox" id="vanhoc"
+                           name="sothich" value="Văn học">
+                    <label for="vanhoc">Văn học</label><br>
+
+                    <input type="checkbox" id="cntt"
+                           name="sothich" value="Công nghệ thông tin">
+                    <label for="cntt">Công nghệ thông tin</label><br>
+
+                    <input type="checkbox" id="lichsu"
+                           name="sothich" value="Lịch sử">
+                    <label for="lichsu">Lịch sử</label><br>
+
+                    <input type="checkbox" id="game"
+                           name="sothich" value="Game">
+                    <label for="game">Game</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan">
+                    <label for="chuyennganh">Chuyên ngành:</label>
+                </td>
+                <td>
+                    <select id="chuyennganh" name="chuyennganh"
+                            style="width: 190px;">
+                        <option value="Công nghệ Web">Công nghệ Web</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan">
+                    <label for="hinh">Gởi hình:</label>
+                </td>
+                <td>
+                    <input type="file" id="hinh" name="hinh"
+                           accept="image/*">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nhan" valign="top">
+                    <label for="yeucau">Yêu cầu:</label>
+                </td>
+                <td>
+                    <textarea id="yeucau" name="yeucau"
+                              style="width: 345px; height: 75px;"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" style="width: 155px;">
+                        Gởi thông tin
+                    </button>
+
+                    <button type="reset" style="width: 95px;">
+                        Nhập lại
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
