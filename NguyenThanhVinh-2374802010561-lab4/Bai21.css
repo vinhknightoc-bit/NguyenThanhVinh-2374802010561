@@ -1,0 +1,6 @@
+.box {
+    height: 500px;
+    background-image: url("banner-yersin.jpg");
+    background-size: 150px;
+    background-repeat: repeat-y;
+}
