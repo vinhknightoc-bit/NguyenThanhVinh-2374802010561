@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 35px 16px; background: white; color: black; font-family: Arial, sans-serif; font-size: 16px; }
+        .page { margin: 0 auto; max-width: 100%; }
+        h1 { margin: 0 0 24px; text-align: center; font-size: 24px; }
+        table { width: 100%; border-spacing: 0 10px; }
+        td { vertical-align: top; }
+        input, select, textarea, button { font: inherit; }
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea { max-width: 100%; }
+        textarea { resize: vertical; }
+        input[type="checkbox"], input[type="radio"] { accent-color: #507fb7; }
+        .choice { display: block; margin: 5px 0; }
+        .actions { margin-top: 15px; }
+        .actions button { margin-right: 8px; cursor: pointer; }
+        .required { margin-left: 5px; white-space: nowrap; }
+        .back { display: inline-block; margin-top: 28px; color: #24578e; font-size: 14px; }
+        .message { margin: 15px 0 0; line-height: 1.5; font-size: 14px; }
+        a:focus-visible, button:focus-visible { outline: 2px solid #24578e; outline-offset: 3px; }
+
+        .blue-input { border: 2px solid #385d8a; border-radius: 0; padding: 5px 8px; background: white; }
+        .blue-button { padding: 9px 22px; min-width: 105px; border: 2px solid #385d8a; border-radius: 0; color: white; background: #507fb7; }
+        .blue-button:hover { background: #385d8a; }
+
+        .page { width: 500px; }
+        h1 { font-weight: normal; }
+        td:first-child { width: 155px; padding-top: 7px; }
+        .blue-input { width: 230px; }
+        @media (max-width: 480px) {
+            td:first-child { width: 115px; }
+            .blue-input { width: 100%; }
+            .actions button { min-width: 0; padding: 8px 12px; margin-bottom: 6px; }
+        }
+
+    </style>
+</head>
+<body>
+    <main class="page">
+        <h1>ĐĂNG NHẬP</h1>
+        <form method="post">
+            <table>
+                <tr>
+                    <td><label for="username">Tên đăng nhập:</label></td>
+                    <td><input class="blue-input" type="text" id="username" name="username" autocomplete="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Mật khẩu:</label></td>
+                    <td><input class="blue-input" type="password" id="password" name="password" autocomplete="current-password" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="actions">
+                        <button class="blue-button" type="reset">Cancel</button>
+                        <button class="blue-button" type="submit">Login</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <p id="message" class="message" role="status"></p>
+        <a class="back" href="Index.html">← Về trang bài tập</a>
+    </main>
+
+    <script>
+        // Mô phỏng gửi biểu mẫu; không lưu thông tin hoặc mật khẩu.
+        const form = document.querySelector("form");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            message.textContent = "Thông tin hợp lệ. Đây là biểu mẫu thực hành, dữ liệu chưa được gửi đến máy chủ.";
+        });
+
+        form.addEventListener("reset", function () {
+            message.textContent = "";
+        });
+    </script>
+</body>
+</html>
