@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin thành viên</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 35px 16px; background: white; color: black; font-family: Arial, sans-serif; font-size: 16px; }
+        .page { margin: 0 auto; max-width: 100%; }
+        h1 { margin: 0 0 24px; text-align: center; font-size: 24px; }
+        table { width: 100%; border-spacing: 0 10px; }
+        td { vertical-align: top; }
+        input, select, textarea, button { font: inherit; }
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea { max-width: 100%; }
+        textarea { resize: vertical; }
+        input[type="checkbox"], input[type="radio"] { accent-color: #507fb7; }
+        .choice { display: block; margin: 5px 0; }
+        .actions { margin-top: 15px; }
+        .actions button { margin-right: 8px; cursor: pointer; }
+        .required { margin-left: 5px; white-space: nowrap; }
+        .back { display: inline-block; margin-top: 28px; color: #24578e; font-size: 14px; }
+        .message { margin: 15px 0 0; line-height: 1.5; font-size: 14px; }
+        a:focus-visible, button:focus-visible { outline: 2px solid #24578e; outline-offset: 3px; }
+
+        .page { width: 610px; }
+        h1 { font-size: 28px; }
+        table { border-spacing: 0 5px; }
+        td:first-child { width: 135px; text-align: right; padding: 4px 8px 0 0; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea { border: 1px solid #a2b5c3; border-radius: 0; padding: 3px 5px; background: white; }
+        .medium { width: 300px; }
+        .wide { width: 95%; }
+        .short { width: 75px; }
+        .choice { margin: 1px 0; }
+        .line { display: flex; align-items: center; gap: 0; }
+        .line input { min-width: 0; }
+        .file { width: 100%; font-size: 14px; }
+        textarea { display: block; width: 95%; min-height: 85px; }
+        button { padding: 3px 12px; border: 1px solid #90a6b7; border-radius: 3px; background: #f2f2f2; font-size: 14px; cursor: pointer; }
+        button:hover { background: #e1ebf2; }
+        @media (max-width: 500px) { td:first-child { width: 104px; } .medium { width: calc(100% - 30px); } h1 { font-size: 24px; } }
+
+    </style>
+</head>
+<body>
+    <main class="page">
+        <h1>PHIẾU ĐĂNG KÝ</h1>
+        <form method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><label for="fullname">Họ và tên:</label></td>
+                    <td><div class="line"><input class="medium" type="text" id="fullname" name="fullname" autocomplete="name" required><span class="required">(*)</span></div></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Địa chỉ:</label></td>
+                    <td><input class="wide" type="text" id="address" name="address" autocomplete="street-address"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><div class="line"><input class="medium" type="email" id="email" name="email" autocomplete="email" required><span class="required">(*)</span></div></td>
+                </tr>
+                <tr>
+                    <td id="gender-label">Giới tính:</td>
+                    <td role="group" aria-labelledby="gender-label">
+                        <label><input type="radio" name="gender" value="nam"> Nam</label>
+                        <label><input type="radio" name="gender" value="nu"> Nữ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="age">Tuổi:</label></td>
+                    <td><input class="short" type="number" id="age" name="age" min="1" step="1" required><span class="required">(*)</span></td>
+                </tr>
+                <tr>
+                    <td id="hobbies-label">Sở thích:</td>
+                    <td role="group" aria-labelledby="hobbies-label">
+                        <label class="choice"><input type="checkbox" name="hobbies" value="the-thao"> Thể thao</label>
+                        <label class="choice"><input type="checkbox" name="hobbies" value="van-hoc"> Văn học</label>
+                        <label class="choice"><input type="checkbox" name="hobbies" value="cntt"> Công nghệ thông tin</label>
+                        <label class="choice"><input type="checkbox" name="hobbies" value="lich-su"> Lịch sử</label>
+                        <label class="choice"><input type="checkbox" name="hobbies" value="game"> Game</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="major">Chuyên ngành:</label></td>
+                    <td>
+                        <select id="major" name="major">
+                            <option value="cong-nghe-web">Công nghệ Web</option>
+                            <option value="ky-thuat-phan-mem">Kỹ thuật phần mềm</option>
+                            <option value="he-thong-thong-tin">Hệ thống thông tin</option>
+                            <option value="mang-may-tinh">Mạng máy tính</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="photo">Gởi hình:</label></td>
+                    <td><input class="file" type="file" id="photo" name="photo" accept="image/*"></td>
+                </tr>
+                <tr>
+                    <td><label for="request">Yêu cầu:</label></td>
+                    <td><textarea id="request" name="request" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit">Gởi thông tin</button> <button type="reset">Nhập lại</button></td>
+                </tr>
+            </table>
+        </form>
+        <p id="message" class="message" role="status"></p>
+        <a class="back" href="Index.html">← Về trang bài tập</a>
+    </main>
+
+    <script>
+        // Mô phỏng gửi biểu mẫu; không lưu thông tin hoặc mật khẩu.
+        const form = document.querySelector("form");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            message.textContent = "Thông tin hợp lệ. Đây là biểu mẫu thực hành, dữ liệu chưa được gửi đến máy chủ.";
+        });
+
+        form.addEventListener("reset", function () {
+            message.textContent = "";
+        });
+    </script>
+</body>
+</html>
