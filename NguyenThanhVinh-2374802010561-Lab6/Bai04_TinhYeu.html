@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4 - Máy tính tình yêu</title>
+</head>
+<body>
+    <h2>Bài 4. Máy tính tình yêu</h2>
+
+    <label for="tenBan">Tên của bạn:</label>
+    <input type="text" id="tenBan" >
+    <br><br>
+    <label for="tenNguoiKia">Tên người còn lại:</label>
+    <input type="text" id="tenNguoiKia" >
+    <br><br>
+    <button type="button" onclick="tinhTinhYeu()">Tính tỷ lệ phù hợp</button>
+
+    <p id="ketqua" aria-live="polite"></p>
+
+    <script>
+        function tinhTinhYeu() {
+            let tenBan = document.getElementById("tenBan").value.trim();
+            let tenNguoiKia = document.getElementById("tenNguoiKia").value.trim();
+            let ketQua = document.getElementById("ketqua");
+
+            if (tenBan === "" || tenNguoiKia === "") {
+                ketQua.textContent = "Vui lòng nhập đầy đủ hai tên!";
+                return;
+            }
+
+            let tyLe = Math.floor(Math.random() * 100) + 1;
+            let thongBao;
+            if (tyLe >= 80) {
+                thongBao = "Hai bạn rất hợp nhau!";
+            } else if (tyLe >= 50) {
+                thongBao = "Hai bạn khá hợp nhau!";
+            } else {
+                thongBao = "Hai bạn cần tìm hiểu nhau nhiều hơn!";
+            }
+
+            ketQua.textContent = tenBan + " và " + tenNguoiKia +
+                " có tỷ lệ phù hợp: " + tyLe + "%. " + thongBao;
+        }
+    </script>
+</body>
+</html>

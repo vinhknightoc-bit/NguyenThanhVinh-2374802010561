@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2 - Tính tuổi</title>
+</head>
+<body>
+    <h2>Bài 2. Tính tuổi</h2>
+
+    <label for="namsinh">Nhập năm sinh của bạn:</label>
+    <input type="number" id="namsinh" min="1" step="1">
+    <br><br>
+    <button type="button" onclick="tinhTuoi()">Tính tuổi</button>
+
+    <p id="ketqua" aria-live="polite"></p>
+
+    <script>
+        function tinhTuoi() {
+            let duLieu = document.getElementById("namsinh").value;
+            let yourBirth = Number(duLieu);
+            let currentYear = new Date().getFullYear();
+            let ketQua = document.getElementById("ketqua");
+
+            if (duLieu === "" || !Number.isInteger(yourBirth) ||
+                yourBirth < 1 || yourBirth > currentYear) {
+                ketQua.textContent = "Vui lòng nhập năm sinh hợp lệ, không lớn hơn năm hiện tại!";
+                return;
+            }
+
+            let yourAge = currentYear - yourBirth;
+            ketQua.textContent = "Tuổi của bạn là: " + yourAge;
+        }
+    </script>
+</body>
+</html>
