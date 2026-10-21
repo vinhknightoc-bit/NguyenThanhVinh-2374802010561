@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    width: 420px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Form Đăng nhập */
+#manHinhDangNhap input {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+#manHinhDangNhap input:focus {
+    border-color: #3b82f6;
+}
+
+#manHinhDangNhap button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#btnDangNhap {
+    background-color: #3b82f6;
+}
+#btnDangNhap:hover {
+    background-color: #2563eb;
+}
+
+#btnDangKy {
+    background-color: #22c55e;
+}
+#btnDangKy:hover {
+    background-color: #16a34a;
+}
+
+.thong-bao {
+    color: #ef4444;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Màn hình cửa hàng */
+#manHinhCuaHang {
+    width: 900px;
+}
+
+.thanh-tren {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.thanh-tren button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.thanh-tren button:hover {
+    background-color: #dc2626;
+}
+
+h1 {
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.layout {
+    display: flex;
+    gap: 20px;
+}
+
+.layout .card {
+    flex: 1;
+}
+
+/* Bảng sản phẩm */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #475569;
+}
+
+.btn-them-gh {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.btn-them-gh:hover {
+    background-color: #2563eb;
+}
+
+/* Giỏ hàng */
+.tong-tien {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#btnThanhToan {
+    width: 100%;
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#btnThanhToan:hover {
+    background-color: #16a34a;
+}
