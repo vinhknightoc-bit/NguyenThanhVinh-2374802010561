@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Todo List</h1>
+
+  <!-- Ô nhập công việc mới -->
+  <div class="form-nhap">
+    <input type="text" id="noiDung" placeholder="Nhập công việc cần làm...">
+    <button id="btnThem" onclick="themCongViec()">Thêm</button>
+  </div>
+
+  <!-- DANH SÁCH CÔNG VIỆC -->
+  <ul id="danhSach">
+    <!-- JS sẽ điền dữ liệu vào đây -->
+  </ul>
+</div>
+
+<script>
+  /* =========================================================
+     1. DỮ LIỆU: mảng các object công việc
+     ========================================================= */
+  let danhSachCV = [
+    { id: 1, noiDung: "Học bài JavaScript", hoanThanh: false },
+    { id: 2, noiDung: "Làm bài tập về nhà", hoanThanh: true },
+    { id: 3, noiDung: "Ôn thi giữa kỳ", hoanThanh: false }
+  ];
+
+  // Biến đếm để cấp id mới cho công việc tiếp theo được thêm vào
+  let idTiepTheo = 4;
+
+  /* =========================================================
+     2. LẤY THAM CHIẾU CÁC PHẦN TỬ DOM CẦN DÙNG NHIỀU LẦN
+     ========================================================= */
+  let oDanhSach = document.getElementById("danhSach");
+  let oNoiDung = document.getElementById("noiDung");
+
+  /* =========================================================
+     3. HÀM TÌM VỊ TRÍ 1 CÔNG VIỆC TRONG MẢNG THEO ID
+     ========================================================= */
+  function timViTri(id) {
+    for (let i = 0; i < danhSachCV.length; i++) {
+      if (danhSachCV[i].id === id) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  /* =========================================================
+     4. HÀM VẼ LẠI TOÀN BỘ DANH SÁCH DỰA TRÊN danhSachCV
+     ========================================================= */
+  function hienThiDanhSach() {
+    let html = "";
+    for (let i = 0; i < danhSachCV.length; i++) {
+      let cv = danhSachCV[i];
+      let checked = cv.hoanThanh ? "checked" : "";
+      let classHoanThanh = cv.hoanThanh ? 'class="da-hoan-thanh"' : "";
+
+      html += `
+        <li>
+          <input type="checkbox" ${checked} onchange="toggleHoanThanh(${cv.id})">
+          <span ${classHoanThanh}>${cv.noiDung}</span>
+          <button onclick="xoaCongViec(${cv.id})">Xóa</button>
+        </li>
+      `;
+    }
+    oDanhSach.innerHTML = html;
+  }
+
+  /* =========================================================
+     5. HÀM THÊM CÔNG VIỆC MỚI
+     ========================================================= */
+  function themCongViec() {
+    let noiDung = oNoiDung.value.trim();
+    if (noiDung === "") return; // Kiểm tra nếu ô nhập trống thì bỏ qua
+
+    let cvMoi = {
+      id: idTiepTheo,
+      noiDung: noiDung,
+      hoanThanh: false
+    };
+
+    danhSachCV.push(cvMoi);
+    idTiepTheo++;
+    oNoiDung.value = "";
+    hienThiDanhSach();
+  }
+
+  /* =========================================================
+     6. HÀM XÓA 1 CÔNG VIỆC THEO ID
+     ========================================================= */
+  function xoaCongViec(id) {
+    let viTri = timViTri(id);
+    if (viTri !== -1) {
+      danhSachCV.splice(viTri, 1);
+      hienThiDanhSach();
+    }
+  }
+
+  /* =========================================================
+     7. HÀM ĐÁNH DẤU HOÀN THÀNH / BỎ ĐÁNH DẤU
+     ========================================================= */
+  function toggleHoanThanh(id) {
+    let viTri = timViTri(id);
+    if (viTri !== -1) {
+      danhSachCV[viTri].hoanThanh = !danhSachCV[viTri].hoanThanh;
+      hienThiDanhSach();
+    }
+  }
+
+  /* =========================================================
+     8. HIỂN THỊ DANH SÁCH LẦN ĐẦU KHI TẢI TRANG
+     ========================================================= */
+  hienThiDanhSach();
+</script>
+
+</body>
+</html>
